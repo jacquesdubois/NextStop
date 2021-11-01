@@ -25,8 +25,20 @@ function Banner({ placeholder }) {
         setEndDate(ranges.selection.endDate);
     }
 
+    const search = () => {
+        router.push({
+            pathname: '/search',
+            query: {
+                location: searchInput,
+                startDate: startDate.toISOString(),
+                endDate: endDate.toISOString(),
+                numberOfGuests: numberOfGuests,
+            },
+        })
+    }
+
     return (
-        <div className='relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[610px] 2xl:h-[700px] z-40 max-w-full'>
+        <div className='relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[610px] 2xl:h-[700px] z-30 max-w-full'>
             <Image
                 src='/splash-image.png'
                 layout='fill'
@@ -44,7 +56,7 @@ function Banner({ placeholder }) {
                     <SearchIcon className='hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2'/>
                 </div>
                 {searchInput && (
-                    <div className='flex w-full justify-center items-center mt-1 z-100'>
+                    <div className='flex w-full justify-center items-center mt-1 z-10'>
                         <div className='flex flex-col mx-auto'>
                             <DateRangePicker
                                 ranges={[selectionRange]}

@@ -1,7 +1,14 @@
+import { useRouter } from 'next/dist/client/router';
+
+
 function Header() {
+    const router = useRouter();
+
     return (
-        <header className='sticky top-0 z-50 grid grid-cols-2 bg-white shadow-md p-5'>
-            <div className='relative flex items-center h-10 cursor-pointer my-auto'>
+        <header className='sticky top-0 z-40 grid grid-cols-2 bg-white shadow-md p-5'>
+            <div className='relative flex items-center h-10 cursor-pointer my-auto'
+                onClick={() => router.push('/')}
+            >
                 <svg className='h-7 w-7 mr-1'
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none' viewBox='0 0 24 24'
